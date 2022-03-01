@@ -1,0 +1,151 @@
+$default-font: "Montserrat", sans-serif;
+$theme-color-dark: #612a76;
+$theme-color: #7e3f97;
+$theme-color-light: #9b4fba;
+$color-white: #fff;
+$color-black: #404040;
+$color-light-yellow: #f6eee7;
+$color-light-violet: #e4cde3;
+$color-light-brown: #ebbd8f;
+$color-light-blue: #81e8e6;
+$color-light-green: #b8e986;
+$color-light-red: #ff8a8c;
+$cool-radius: 10px;
+$text-color: #404040;
+$text-white: #fff;
+$theme-colors: (
+  "primary": #7e3f97,
+);
+@mixin transition($params) {
+  -webkit-transition: $params;
+  -moz-transition: $params;
+  -khtml-transition: $params;
+  -o-transition: $params;
+  transition: $params;
+}
+
+@mixin rotate($params) {
+  -webkit-transform: rotate($params);
+  -moz-transform: rotate($params);
+  -khtml-transform: rotate($params);
+  -o-transform: rotate($params);
+  transform: rotate($params);
+}
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+@mixin UserSelect($property) {
+  -webkit-user-select: $property;
+  -moz-user-select: $property;
+  -ms-user-select: $property;
+  user-select: $property;
+}
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root("::-webkit-input-placeholder") {
+    @content;
+  }
+  @include optional-at-root(":-moz-placeholder") {
+    @content;
+  }
+  @include optional-at-root("::-moz-placeholder") {
+    @content;
+  }
+  @include optional-at-root(":-ms-input-placeholder") {
+    @content;
+  }
+}
+
+
+//-------------------- Responsive --------------------//
+@mixin desktop {
+  @media (max-width: #{$large-device-width}) {
+    @content;
+  }
+ }
+ @mixin tablet {
+  @media (max-width: #{$medium-device-width}) {
+    @content;
+  }
+ }
+ @mixin mobile {
+ @media (max-width: #{$small-device-width}) {
+    @content;
+  }
+ }
+ @mixin extra-small-mobile {
+  @media (max-width: #{$extra-small-device-width}) {
+    @content;
+  }
+ }
+
+ //-------------------- Responsive sizes -------------------- //
+ $large-device-width: 1199px; // Large devices (desktops, less than 1200px)
+ $medium-device-width: 991px; // Medium devices (tablets, less than 992px)
+ $small-device-width: 767px; // Small devices (landscape phones, less than 768px)
+ $extra-small-device-width: 575px;   // Extra small devices (portrait phones, less than 576px)
+
+
+// Defaults
+img[src="Error.src"] {
+  display: none;
+}
+h1 {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 36px;
+  @include mobile {
+    font-size: 24px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 36px;
+  @include mobile {
+    font-size: 22px;
+  }
+}
+
+h3 {
+  font-size: 18px;
+  line-height: 24px;
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+h5 {
+  font-size: 16px;
+  @include mobile {
+    font-size: 13px;
+  }
+}
+
+h6 {
+  font-size: 14px;
+  @include mobile {
+    font-size: 12px;
+  }
+}
+
+p {
+  font-size: 18px;
+  line-height: 36px;
+  color: #000000;
+  @include mobile {
+    font-size: 16px;
+    line-height: 28px;
+  }
+}

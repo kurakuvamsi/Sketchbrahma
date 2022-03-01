@@ -1,0 +1,76 @@
+<div class="container margin" >
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-3">
+                    <!-- <div> <input type="checkbox"> </div> -->
+
+                    <!-- -----------------------accordians start----------------- -->
+                    <div id="main">
+                        <div class="container-">
+                            <div class="accordion" id="faq">
+                                 <!-- -----------------------------states start-------------------- -->
+                                <div class="card">
+                                    <div class="card-header" id="faqhead1">
+                                        <a href="#" class="btn btn-header-link" data-toggle="collapse"
+                                            data-target="#faq1" aria-expanded="true" aria-controls="faq1"> Filter By state </a>
+                                    </div>
+                                    <div id="faq1" class="collapse show" aria-labelledby="faqhead1" data-parent="#faq">
+                                        <ng-container *ngFor="let item of state_cityData">
+                                            <div class="cards">
+                                                <input type="checkbox"[checked]="item.isSelected" class="ckbox" name="list_name" (change)="isAlSelected(item)" />
+                                                <div style="margin: 0px 10px;"> {{item.state}} </div>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                                 <!-- -----------------------------states end-------------------- -->
+
+                                 
+                                 <!-- -----------------------------cities start-------------------- -->
+
+                                <div class="card">
+                                    <div class="card-header" id="faqhead2">
+                                        <a href="#" class="btn btn-header-link collapsed" data-toggle="collapse"
+                                            data-target="#faq2" aria-expanded="true" aria-controls="faq2"> Filter By City </a>
+                                    </div>
+                                    <div id="faq2" class="collapse" aria-labelledby="faqhead2" data-parent="#faq">
+                                        <ng-container *ngFor="let item of state_cityData">
+                                            <div class="cards">
+                                                <input type="checkbox"[checked]="item.isSelected" class="ckbox" name="list_name" (change)="isAllSelected(item)" />
+                                                <div style="margin: 0px 10px;"> {{item.city}} </div>
+                                            </div>
+                                        </ng-container>
+                                    </div>
+                                </div>
+
+                                 <!-- -----------------------------cities end-------------------- -->
+                             
+                            </div>
+                        </div>
+                    </div>
+                    <!-- -----------------------accordians end ----------------- -->
+
+                </div>
+                <div class="col-lg-9">
+                    <div class="row">
+                        <ng-container *ngFor="let item of Breweries">
+                        <div class="col-lg-6 mb-3">
+                            <div class="card- card2">
+                                <div class="card-body">
+                                    <div> Name : {{item.name}} </div>
+                                    <div> City &nbsp; &nbsp; : {{item.city}} </div>
+                                    <div> State &nbsp; : {{item.state}} </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+
+                       
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
